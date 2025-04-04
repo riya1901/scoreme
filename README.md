@@ -34,19 +34,13 @@ pip install pymupdf pandas openpyxl
    ```
 3. **Find the extracted Excel files** in `excel_output/`.
 
+   
+## ❌ Limitations
+- **Corrupted PDFs**: The tool cannot process corrupted or unreadable PDFs. Example: `test6.pdf` is detected as corrupted.
+- **Complex Formatting**: Extremely complex tables with merged cells may not be extracted accurately.
+- **Handwritten PDFs**: Only system-generated PDFs are supported; handwritten or scanned tables are not processed correctly.
+- **Multi-Language Support**: Currently optimized for English; other languages may not be parsed accurately.
 
+## 🎥 Demo Video
+- [Watch Demo Video](https://drive.google.com/drive/folders/1e9Om5RWH5P9HA03gN0gdcMkcQVEYHaxo?q=sharedwith:public%20parent:1e9Om5RWH5P9HA03gN0gdcMkcQVEYHaxo)
 
-## ✅ Evaluation Criteria
-- **Accuracy**: Correct table detection & extraction.
-- **Efficiency**: Processes multiple PDFs efficiently.
-- **Code Quality**: Readable, maintainable, and well-documented.
-- **User Experience**: Simple to use, with clear instructions & error handling.
-- **Innovation**: Handles tables with borders, no borders, and irregular shapes.
-
-## 📝 Submission
-- Submit the **source code** along with `README.md`.
-- Include **sample PDFs & extracted Excel files** for testing.
-- (Optional) Provide a short **demo video** explaining your solution.
-
----
-**📧 Need help?** Feel free to reach out! 🚀
