@@ -3,7 +3,7 @@ import fitz  # PyMuPDF
 import pandas as pd
 from openpyxl import Workbook
 
-def extract_text_based_table(page):
+def extract_text(page):
     words = page.get_text("words")  # Extract words with coordinates
     words.sort(key=lambda w: (w[1], w[0]))  # Sort by y-coordinates (top to bottom), then x-coordinates (left to right)
     
@@ -31,12 +31,12 @@ def extract_text_based_table(page):
     
     return rows
 
-def extract_tables_from_pdf(pdf_path, output_excel_path):
+def extract_tables(pdf_path, output_excel_path):
     doc = fitz.open(pdf_path)
     workbook = Workbook()
     
     for page_num, page in enumerate(doc):
-        table_data = extract_text_based_table(page)
+        table_data = extract_text(page)
         if table_data:
             sheet = workbook.create_sheet(title=f"Page_{page_num + 1}")
             for row in table_data:
@@ -62,7 +62,7 @@ def process_all_pdfs(pdf_folder, output_folder):
             output_excel_path = os.path.join(output_folder, output_filename)
             
             print(f"\n📄 Processing: {filename}")
-            extract_tables_from_pdf(pdf_path, output_excel_path)
+            extract_tables(pdf_path, output_excel_path)
 
 # Example Usage
 pdf_folder = "pdfs"  # Folder containing PDFs
